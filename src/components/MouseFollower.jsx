@@ -3,28 +3,40 @@ import './MouseFollower.css';
 
 const MouseFollower = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const isMobile = window.innerWidth <= 768; // Adjust breakpoint as needed
 
   useEffect(() => {
+    const isMobile = window.innerWidth <= 768; // Adjust breakpoint as needed
+
     const handleMouseMove = (event) => {
       setPosition({ x: event.clientX, y: event.clientY });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    if (!isMobile) {
+      window.addEventListener('mousemove', handleMouseMove);
+    }
+
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      if (!isMobile) {
+        window.removeEventListener('mousemove', handleMouseMove);
+      }
     };
   }, []);
 
   return (
     <>
-      <div
-        className="circle"
-        style={{ left: position.x, top: position.y }}
-      />
-      <div
-        className="dot-mouse"
-        style={{ left: position.x, top: position.y }}
-      />
+      {!isMobile && (
+        <>
+          <div
+            className="circle"
+            style={{ left: position.x, top: position.y }}
+          />
+          <div
+            className="dot-mouse"
+            style={{ left: position.x, top: position.y }}
+          />
+        </>
+      )}
     </>
   );
 };
