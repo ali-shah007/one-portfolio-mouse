@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 function Contact() {
@@ -7,32 +7,13 @@ function Contact() {
     const [showPopup, setShowPopup] = useState(false);
     const [error, setError] = useState('');
 
-    useEffect(() => {
-        // Add event listener to resize the previous section when the keyboard is opened
-        window.addEventListener('resize', handleResize);
-
-        // Remove event listener on component unmount
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-
-    const handleResize = () => {
-        // Calculate and set the height of the previous section
-        const windowHeight = window.innerHeight;
-        const contactSection = document.querySelector('[name="contact"]');
-        const contactSectionHeight = contactSection.offsetHeight;
-        const previousSection = contactSection.previousElementSibling;
-        const extraSpace = windowHeight - contactSectionHeight;
-        previousSection.style.height = `${extraSpace}px`;
-    };
-
     const sendEmail = (e) => {
         e.preventDefault();
     
         const name = form.current['name'].value.trim();
         const email = form.current['email'].value.trim();
         
+
         // Form validation
         if (!name) {
             setError('Name is required');
@@ -73,13 +54,13 @@ function Contact() {
     };
     
     return (
-        <div name="contact" className='w-full h-screen bg-gradient-to-b from-black to-gray-800 p-4 text-white'>
-            <div className='flex flex-col p-4 justify-center max-w-screen-lg mx-auto h-full w-full'>
+        <div name="contact" className='md:h-screen w-full bg-gradient-to-b from-black to-gray-800 p-4 text-white py-10'>
+            <div className='flex flex-col p-4 justify-center max-w-screen-lg mx-auto h-full'>
                 <div className='flex flex-col items-center justify-center'>
                     <p className='text-4xl font-bold inline border-b-4 border-gray-500'>Contact</p>
                     <p className='py-6'>Submit the form below to get in touch with me</p>
                 </div>
-                <div className='flex justify-center items-center w-full'>
+                <div className='flex justify-center items-center'>
                     <form ref={form} onSubmit={sendEmail} className='flex flex-col w-full md:w-1/2'>
                         <input type="text" name="name" placeholder='Enter your name' className='p-2 bg-transparent border-2 rounded-md text-white focus:outline-none' />
                         <input type="email" name="email" placeholder='Enter your email' className='my-4 p-2 bg-transparent border-2 rounded-md text-white focus:outline-none' />
