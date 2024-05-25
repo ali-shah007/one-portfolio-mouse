@@ -5,9 +5,11 @@ import MouseFollower from "./components/MouseFollower";
 
 
 
+
 function App() {
   return (
    <div>
+
     <MouseFollower/>
     <LoadingComponent/>
    </div>

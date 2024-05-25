@@ -13,7 +13,6 @@ function Contact() {
         const name = form.current['name'].value.trim();
         const email = form.current['email'].value.trim();
         
-
         // Form validation
         if (!name) {
             setError('Name is required');

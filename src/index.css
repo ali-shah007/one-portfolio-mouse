@@ -13,6 +13,13 @@
     overflow: scroll;
     scroll-snap-type: y mandatory;
   }
+  /* CSS to handle virtual keyboard popping up */
+@media (max-width: 600px) {
+  .flex-col {
+    min-height: 100vh;
+  }
+}
+
   .snap-center {
     scroll-snap-align: center;
   }
