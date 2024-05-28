@@ -9,7 +9,7 @@ import Home from "../components/Home";
 
 function HomeScreen() {
   return (
-    <div> 
+    <div className=''> 
     <NavBar />
     <Home />
     <About />

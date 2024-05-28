@@ -54,7 +54,7 @@ function Contact() {
     };
     
     return (
-        <div name="contact" className='md:h-screen w-full bg-gradient-to-b from-black to-gray-800 p-4 text-white py-10'>
+        <div name="contact" className='snap-item md:h-screen w-full bg-gradient-to-b from-black to-gray-800 p-4 text-white py-10'>
             <div className='flex flex-col p-4 justify-center max-w-screen-lg mx-auto h-full'>
                 <div className='flex flex-col items-center justify-center'>
                     <p className='text-4xl font-bold inline border-b-4 border-gray-500'>Contact</p>
