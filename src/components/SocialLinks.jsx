@@ -40,7 +40,7 @@ function SocialLinks() {
                 Resume <BsFillPersonLinesFill size={30}/>
                 </>
             ),
-            href: '',
+            href: '/AliResume.pdf',
             style: 'rounded-br-md',
             download: true,
         }
